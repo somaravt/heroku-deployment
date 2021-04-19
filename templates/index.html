@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Model Deployment</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <style>
+      body {
+        font-family: 'Tangerine', serif;
+        font-size: 28px;
+      }
+    </style>
+
+
+</head>
+
+<body>
+ <div class="login">
+	<h3 style="text-align:center">Sentiment based product recommendations</h3>
+
+    <form align="center" action="{{ url_for('recommend')}}"method="post">
+    	<input type="text" style="text-align:center" name="username" placeholder="enter your username" required="required" />
+        <br>
+
+        <button align="center" type="submit" class="btn btn-primary btn-block btn-large">Get recomm.</button>
+    </form>
+
+   <br>
+   <br>
+     <table border='1'>
+       <thead>
+         <th>Top 5 Recommended Products</th>
+       </thead>
+       <tbody>
+        {%for i in prediction%}
+  
+        <tr><td>{{i}}</td></tr>
+    {%endfor%}
+       </tbody>
+     </table>
+
+ </div>
+
+
+</body>
+</html>
